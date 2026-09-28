@@ -155,7 +155,6 @@ export const signatures = [
   { img: 'salmon.jpg', en: 'Grilled Salmon', ar: 'سلمون مشوي', den: 'Fresh salmon fillet over a silky purée.', dar: 'فيليه سلمون طازج فوق بيوريه ناعم.' },
   { img: 'mini-sliders.jpg', en: 'Mini Sliders', ar: 'ميني سلايدرز', den: 'A guest favourite — three bites, zero regrets.', dar: 'المفضلة عند الزوار — ثلاث لقمات لا تُنسى.' },
   { img: 'chocolate-fondant.jpg', en: 'Chocolate Fondant', ar: 'فوندان شوكولاتة', den: 'Warm molten centre, raspberries and cream.', dar: 'قلب ذائب دافئ مع التوت والكريمة.' },
-  { img: 'skillet-cookie.jpg', en: 'Cookie in a Pan', ar: 'كوكي بالمقلاة', den: 'Straight from the oven, topped with ice cream.', dar: 'ساخنة من الفرن مع آيس كريم.' },
 ]
 
 // القائمة — أسماء الأصناف من قائمة لوكا (بدون أسعار)

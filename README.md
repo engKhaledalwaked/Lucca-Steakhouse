@@ -12,13 +12,13 @@ npm run dev
 ارفع المجلد على GitHub، ثم من Vercel: **Add New → Project → Import**. يتعرّف على Vite تلقائياً (Build: `npm run build`، Output: `dist`).
 
 ## الصور
-الصور في `public/img/` مأخوذة من صفحة المطعم على فيسبوك. ما زالت ناقصة (لا توجد لها صور في الصفحة): `beef-wellington.jpg`، `chocolate-fondant.jpg`، `skillet-cookie.jpg`. الأسماء المطلوبة:
+الصور في `public/img/` مأخوذة من صفحة المطعم على فيسبوك. الأسماء المطلوبة:
 
 | الملف | مكانه |
 |---|---|
 | `hero.jpg` | خلفية الواجهة |
 | `butcher.jpg`, `wagyu-cut.jpg` | قسم القطع |
-| `hanger-steak.jpg`, `beef-wellington.jpg`, `wagyu-carpaccio.jpg`, `brisket-tacos.jpg`, `salmon.jpg`, `mini-sliders.jpg`, `chocolate-fondant.jpg`, `skillet-cookie.jpg` | أطباق لوكا |
+| `hanger-steak.jpg`, `beef-wellington.jpg`, `wagyu-carpaccio.jpg`, `brisket-tacos.jpg`, `salmon.jpg`, `mini-sliders.jpg`, `chocolate-fondant.jpg` | أطباق لوكا |
 | `chef-plating.jpg`, `interior.jpg`, `evening.jpg`, `table.jpg` | قسم التجربة |
 | `carving.jpg`, `kebab.jpg`, `wine.jpg`, `wellington-cut.jpg` | شريط الصور |
 
