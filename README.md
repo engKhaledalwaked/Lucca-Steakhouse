@@ -12,7 +12,7 @@ npm run dev
 ارفع المجلد على GitHub، ثم من Vercel: **Add New → Project → Import**. يتعرّف على Vite تلقائياً (Build: `npm run build`، Output: `dist`).
 
 ## الصور
-فك ضغط `lucca-photos.zip` وانسخ الصور إلى `public/img/`. الأسماء المطلوبة:
+الصور في `public/img/` مأخوذة من صفحة المطعم على فيسبوك. ما زالت ناقصة (لا توجد لها صور في الصفحة): `beef-wellington.jpg`، `chocolate-fondant.jpg`، `skillet-cookie.jpg`. الأسماء المطلوبة:
 
 | الملف | مكانه |
 |---|---|
