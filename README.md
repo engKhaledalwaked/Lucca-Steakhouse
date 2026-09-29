@@ -25,7 +25,7 @@ npm run dev
 
 الشعار: `public/logo.png`، مأخوذ من شعارهم الرسمي بلون عاجي ليناسب الخلفية الداكنة.
 
-قسم القطع يعرض مخطط الجزّار (`src/components/BeefChart.vue`)، وكل قطعة في `src/i18n.js` مربوطة بمنطقتها عبر الحقل `region`.
+قسم القطع يعرض مخطط الجزّار (`src/components/BeefChart.vue`) على رسم ثور مأخوذ من رسم متجهي ملكية عامة (publicdomainvectors.org، في `src/steer-path.js`)، وكل قطعة في `src/i18n.js` مربوطة بمنطقتها عبر الحقل `region`.
 
 ## أين أعدّل؟
 - `src/site.js`: واتساب الحجوزات، الهواتف، الروابط، الإحداثيات، التقييمات.

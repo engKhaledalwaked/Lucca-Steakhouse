@@ -1,52 +1,48 @@
 <script setup>
 import { computed } from 'vue'
 import { t } from '../i18n'
+import { steerPath } from '../steer-path'
 
-// مخطط الجزّار: كل منطقة مستطيل يُقصّ على شكل العجل
+// مخطط الجزّار: كل منطقة مضلّع يُقصّ على شكل الثور (الإحداثيات بنظام مسار الثور)
 const props = defineProps({ active: String, served: Array })
 const emit = defineEmits(['pick'])
 
 const regions = [
-  { id: 'chuck', x: 118, y: 0, w: 117, h: 172, lx: 180, ly: 132 },
-  { id: 'brisket', x: 118, y: 172, w: 117, h: 158, lx: 190, ly: 206 },
-  { id: 'rib', x: 235, y: 0, w: 95, h: 172, lx: 283, ly: 124 },
-  { id: 'plate', x: 235, y: 172, w: 165, h: 158, lx: 318, ly: 208 },
-  { id: 'shortloin', x: 330, y: 0, w: 88, h: 172, lx: 374, ly: 124 },
-  { id: 'flank', x: 400, y: 172, w: 100, h: 158, lx: 452, ly: 204 },
-  { id: 'sirloin', x: 418, y: 0, w: 82, h: 172, lx: 459, ly: 124 },
-  { id: 'round', x: 500, y: 0, w: 100, h: 330, lx: 536, ly: 160 },
+  { id: 'chuck', pts: '400,200 700,200 700,870 400,870', lx: 560, ly: 730 },
+  { id: 'rib', pts: '700,200 900,200 900,870 700,870', lx: 800, ly: 740 },
+  { id: 'shortloin', pts: '900,200 1080,200 1080,870 900,870', lx: 990, ly: 740 },
+  { id: 'sirloin', pts: '1080,200 1225,200 1225,870 1080,870', lx: 1152, ly: 740 },
+  { id: 'round', pts: '1225,200 1470,200 1470,598 1548,662 1548,1450 1330,1450 1160,870 1225,870', lx: 1340, ly: 830 },
+  { id: 'brisket', pts: '240,870 620,870 620,1450 240,1450', lx: 520, ly: 935 },
+  { id: 'plate', pts: '620,870 950,870 950,1450 620,1450', lx: 785, ly: 965 },
+  { id: 'flank', pts: '950,870 1160,870 1300,1300 950,1300', lx: 1050, ly: 965 },
 ]
 
-const body = 'M58 112 L84 92 L118 96 L150 104 L190 86 L215 78 L300 74 L400 76 L470 80 L520 82 L556 92 L566 108 L568 140 L562 190 L548 222 L544 250 L548 318 L526 318 L524 280 L520 250 L510 232 L496 222 L470 226 L400 236 L320 240 L250 238 L222 236 L214 262 L210 318 L188 318 L186 262 L178 240 L158 228 L140 206 L118 186 L100 168 L86 170 L64 172 L46 166 L38 150 L40 136 L48 122 Z'
+// خطوط التقسيم الداخلية فقط (حدّ الفخذ مرسوم أصلاً في خط الساق الخلفية)
+const divisions = 'M400 200V870 M700 200V870 M900 200V870 M1080 200V870 M1225 200V870 M240 870H1160 M620 870V1450 M950 870V1300'
 
 const servedSet = computed(() => new Set(props.served))
 </script>
 
 <template>
-  <svg class="steer" viewBox="20 40 580 290" role="img" :aria-label="t.cuts.title">
+  <svg class="steer" viewBox="40 230 1734 1198" role="img" :aria-label="t.cuts.title">
     <defs>
-      <clipPath id="steer-body"><path :d="body" /></clipPath>
-      <pattern id="served-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-        <line x1="0" y1="0" x2="0" y2="6" class="hatch" />
+      <clipPath id="steer-body"><path :d="steerPath" clip-rule="evenodd" /></clipPath>
+      <pattern id="served-hatch" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <line x1="0" y1="0" x2="0" y2="16" class="hatch" />
       </pattern>
     </defs>
 
-    <!-- القرن والأذن والذيل -->
-    <path class="stroke" d="M80 96 Q64 70 86 54 Q80 76 96 93" />
-    <path class="ear" d="M104 101 Q124 86 142 92 Q126 104 108 108 Z" />
-    <path class="stroke" d="M562 100 Q590 140 582 222" />
-    <ellipse class="tuft" cx="582" cy="230" rx="6" ry="11" />
-
     <g clip-path="url(#steer-body)">
-      <rect x="20" y="40" width="600" height="300" class="head" />
+      <rect x="0" y="200" width="1800" height="1300" class="head" />
       <g v-for="r in regions" :key="r.id">
-        <rect :x="r.x" :y="r.y" :width="r.w" :height="r.h" class="region"
-          :class="{ served: servedSet.has(r.id), on: active === r.id }" @mouseenter="emit('pick', r.id)" @mouseleave="emit('pick', null)" />
-        <rect v-if="servedSet.has(r.id) && active !== r.id" :x="r.x" :y="r.y" :width="r.w" :height="r.h" fill="url(#served-hatch)" class="hatch-fill" />
+        <polygon :points="r.pts" class="region" :class="{ served: servedSet.has(r.id), on: active === r.id }"
+          @mouseenter="emit('pick', r.id)" @mouseleave="emit('pick', null)" />
+        <polygon v-if="servedSet.has(r.id) && active !== r.id" :points="r.pts" fill="url(#served-hatch)" class="hatch-fill" />
       </g>
+      <path :d="divisions" class="divide" />
     </g>
-    <path :d="body" class="outline" />
-    <circle cx="66" cy="128" r="2.6" class="eye" />
+    <path :d="steerPath" fill-rule="evenodd" class="outline" />
 
     <text v-for="r in regions" :key="r.id + 't'" :x="r.lx" :y="r.ly" class="label" :class="{ on: active === r.id }">{{ t.cuts.regions[r.id] }}</text>
   </svg>

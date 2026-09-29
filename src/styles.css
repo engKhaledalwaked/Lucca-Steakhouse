@@ -155,16 +155,15 @@ html[lang='en'] .h2 { font-size: clamp(30px, 3.8vw, 48px); }
 .chart { margin: 0; position: sticky; top: 110px; }
 .chart figcaption { color: var(--ink-soft); font-size: 14px; margin-top: 10px; text-align: center; }
 .steer { display: block; width: 100%; height: auto; overflow: visible; }
-.steer .outline { fill: none; stroke: var(--ink); stroke-width: 2.4; stroke-linejoin: round; }
-.steer .stroke { fill: none; stroke: var(--ink); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
-.steer .tuft, .steer .eye, .steer .ear { fill: var(--ink); }
-.steer .head { fill: rgba(43, 29, 21, .06); }
-.steer .region { fill: transparent; stroke: var(--ink); stroke-width: 1.2; stroke-dasharray: 4 3; transition: fill .2s; cursor: default; }
+.steer .outline { fill: none; stroke: var(--ink); stroke-width: 6; stroke-linejoin: round; }
+.steer .head { fill: rgba(43, 29, 21, .07); }
+.steer .region { fill: transparent; stroke: none; transition: fill .2s; cursor: default; }
+.steer .divide { fill: none; stroke: var(--ink); stroke-width: 3; stroke-dasharray: 12 9; pointer-events: none; }
 .steer .region.served { fill: rgba(142, 31, 34, .06); }
 .steer .region.on { fill: var(--ox); }
-.steer .hatch { stroke: rgba(142, 31, 34, .35); stroke-width: 1.2; }
+.steer .hatch { stroke: rgba(142, 31, 34, .35); stroke-width: 3; }
 .steer .hatch-fill { pointer-events: none; }
-.steer .label { font-family: var(--f-body); font-size: 12.5px; font-weight: 600; fill: var(--ink); text-anchor: middle; pointer-events: none; transition: fill .2s; }
+.steer .label { font-family: var(--f-body); font-size: 34px; font-weight: 600; fill: var(--ink); text-anchor: middle; pointer-events: none; transition: fill .2s; }
 .steer .label.on { fill: var(--text); }
 .cut-lists { display: grid; gap: 34px; }
 .cut-list h3 { font-size: 21px; color: var(--ox); margin-bottom: 6px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
@@ -303,6 +302,7 @@ html[lang='en'] .exp-body h3 { font-size: 19px; }
   .ratings { gap: 16px; }
   .rating + .rating { padding-inline-start: 16px; }
   .done-scale { grid-template-columns: repeat(3, 1fr); row-gap: 14px; }
+  .steer .label { font-size: 46px; }
   .sig-grid { grid-template-columns: 1fr; }
   .sig-card.wide { grid-column: auto; }
   .sig-card { min-height: 340px; }
