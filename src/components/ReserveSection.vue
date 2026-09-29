@@ -38,7 +38,6 @@ function submit() {
   <section class="section reserve" id="reserve">
     <div class="container reserve-grid">
       <div class="reserve-text" v-reveal>
-        <p class="eyebrow">{{ t.reserve.eyebrow }}</p>
         <h2 class="h2">{{ t.reserve.title }}</h2>
         <p>{{ t.reserve.p }}</p>
         <ul class="res-points">

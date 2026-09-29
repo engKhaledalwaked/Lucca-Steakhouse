@@ -9,9 +9,8 @@ const tagLabel = (tag) => ({ new: { ar: 'جديد', en: 'New' }, fav: { ar: 'ا�
 
 <template>
   <section class="section menu-sec" id="menu">
-    <div class="container">
+    <div class="container menu-card">
       <div class="sec-head" v-reveal>
-        <p class="eyebrow">{{ t.menu.eyebrow }}</p>
         <h2 class="h2">{{ t.menu.title }}</h2>
         <p class="sec-sub">{{ t.menu.sub }}</p>
       </div>

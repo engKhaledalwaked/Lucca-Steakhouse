@@ -11,14 +11,12 @@ const gallery = ['carving.jpg', 'kebab.jpg', 'wine.jpg', 'wellington-cut.jpg']
   <section class="section exp" id="experience">
     <div class="container">
       <div class="sec-head" v-reveal>
-        <p class="eyebrow">{{ t.exp.eyebrow }}</p>
         <h2 class="h2">{{ t.exp.title }}</h2>
       </div>
       <div class="exp-grid">
         <article class="exp-card" v-for="(it, i) in t.exp.items" :key="i" v-reveal>
           <ImageSlot class="exp-img" :src="img(expImgs[i])" :label="it.t" />
           <div class="exp-body">
-            <span class="exp-num">0{{ i + 1 }}</span>
             <h3>{{ it.t }}</h3>
             <p>{{ it.d }}</p>
           </div>

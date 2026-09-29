@@ -8,7 +8,6 @@ import ImageSlot from './ImageSlot.vue'
   <section class="section sig" id="signature">
     <div class="container">
       <div class="sec-head" v-reveal>
-        <p class="eyebrow">{{ t.sig.eyebrow }}</p>
         <h2 class="h2">{{ t.sig.title }}</h2>
       </div>
       <div class="sig-grid">

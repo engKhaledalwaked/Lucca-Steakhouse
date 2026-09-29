@@ -22,12 +22,18 @@ const dict = {
       cta1: 'احجز طاولتك', cta2: 'شاهد القطع',
       g: 'تقييم Google', gr: 'مراجعة', ta: 'Tripadvisor',
     },
-    strip: ['بلاك أنجس', 'دراي إيج', 'واغيو', 'عرض الشيف على الطاولة', 'تراس خارجي', 'خدمة صف السيارات'],
+    done: {
+      title: 'كيف تحبّها؟',
+      levels: ['بلو', 'رير', 'ميديوم رير', 'ميديوم', 'ميديوم ويل', 'ويل دن'],
+    },
     cuts: {
       eyebrow: 'من الجريل', title: 'اختر قطعتك',
       sub: 'نختار كل قطعة بعناية، ونطهوها بالدرجة التي تريدها تماماً. اطلب قطعتين وشاهد الشيف يحضّرها أمامك.',
       angus: 'قطع بلاك أنجس', aged: 'لحم معتّق (دراي إيج)',
       note: 'الأوزان حسب قائمة المطعم. الأسعار داخل المطعم.',
+      hint: 'مرّر على أي قطعة لترى من أين تأتي.',
+      hot: 'اختيار البيت',
+      regions: { chuck: 'الكتف', brisket: 'الصدر', rib: 'الأضلاع', plate: 'البطن', shortloin: 'الظهر', flank: 'الخاصرة', sirloin: 'السرلوين', round: 'الفخذ' },
     },
     sig: { eyebrow: 'أطباق لوكا', title: 'ما يعود الناس من أجله' },
     menu: {
@@ -80,12 +86,18 @@ const dict = {
       cta1: 'Book your table', cta2: 'See the cuts',
       g: 'Google rating', gr: 'reviews', ta: 'Tripadvisor',
     },
-    strip: ['Black Angus', 'Dry Aged', 'Wagyu', 'Chef’s tableside show', 'Outdoor terrace', 'Valet parking'],
+    done: {
+      title: 'How do you like it?',
+      levels: ['Blue', 'Rare', 'Medium rare', 'Medium', 'Medium well', 'Well done'],
+    },
     cuts: {
       eyebrow: 'From the grill', title: 'Choose your cut',
       sub: 'Every cut is selected with care and cooked exactly the way you like it. Order two and watch the chef prepare them in front of you.',
       angus: 'Black Angus cuts', aged: 'Dry aged beef',
       note: 'Weights as per Lucca’s menu. Prices at the restaurant.',
+      hint: 'Hover any cut to see where it comes from.',
+      hot: 'House pick',
+      regions: { chuck: 'Chuck', brisket: 'Brisket', rib: 'Rib', plate: 'Plate', shortloin: 'Short loin', flank: 'Flank', sirloin: 'Sirloin', round: 'Round' },
     },
     sig: { eyebrow: 'Lucca signatures', title: 'What people come back for' },
     menu: {
@@ -132,17 +144,17 @@ export const t = computed(() => dict[lang.value])
 // القطع — من قائمة لوكا
 export const cuts = {
   angus: [
-    { en: 'Rib-Eye', ar: 'ريب آي', w: '350 g' },
-    { en: 'T-Bone', ar: 'تي بون', w: '650 g' },
-    { en: 'Striploin', ar: 'ستربلوين', w: '300 g' },
-    { en: 'Flap', ar: 'فلاپ', w: '300 g' },
-    { en: 'Tomahawk', ar: 'توماهوك', w: '1.5 kg', hot: true },
+    { en: 'Rib-Eye', ar: 'ريب آي', w: '350 g', region: 'rib' },
+    { en: 'T-Bone', ar: 'تي بون', w: '650 g', region: 'shortloin' },
+    { en: 'Striploin', ar: 'ستربلوين', w: '300 g', region: 'shortloin' },
+    { en: 'Flap', ar: 'فلاپ', w: '300 g', region: 'sirloin' },
+    { en: 'Tomahawk', ar: 'توماهوك', w: '1.5 kg', hot: true, region: 'rib' },
   ],
   aged: [
-    { en: 'Dry Aged T-Bone', ar: 'تي بون معتّق', w: '450 g' },
-    { en: 'Dry Aged New York', ar: 'نيويورك معتّق', w: '300 g' },
-    { en: 'Dry Aged Delmonico', ar: 'ديلمونيكو معتّق', w: '300 g' },
-    { en: 'Dry Aged Dallas', ar: 'دالاس معتّق (ريب آي بالعظم)', w: '450 g', hot: true },
+    { en: 'Dry Aged T-Bone', ar: 'تي بون معتّق', w: '450 g', region: 'shortloin' },
+    { en: 'Dry Aged New York', ar: 'نيويورك معتّق', w: '300 g', region: 'shortloin' },
+    { en: 'Dry Aged Delmonico', ar: 'ديلمونيكو معتّق', w: '300 g', region: 'rib' },
+    { en: 'Dry Aged Dallas', ar: 'دالاس معتّق (ريب آي بالعظم)', w: '450 g', hot: true, region: 'rib' },
   ],
 }
 

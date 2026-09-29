@@ -8,8 +8,7 @@ const year = new Date().getFullYear()
   <footer class="footer">
     <div class="container footer-inner">
       <div>
-        <span class="brand-mark">LUCCA</span><span class="brand-sub">steak house</span>
-        <p class="foot-tag">{{ t.footer.tag }}</p>
+        <img class="foot-logo" src="/logo.png" alt="Lucca Steakhouse" width="560" height="238" />
       </div>
       <div class="socials">
         <a :href="site.instagram" target="_blank" rel="noopener" aria-label="Instagram">

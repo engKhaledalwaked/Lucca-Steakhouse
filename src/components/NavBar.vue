@@ -14,8 +14,7 @@ const links = ['cuts', 'signature', 'menu', 'experience', 'visit']
   <header class="nav" :class="{ scrolled, open }">
     <div class="container nav-inner">
       <a href="#top" class="brand" aria-label="Lucca Steakhouse" @click="open = false">
-        <span class="brand-mark">LUCCA</span>
-        <span class="brand-sub">steak house</span>
+        <img src="/logo.png" alt="Lucca Steakhouse" width="560" height="238" />
       </a>
       <nav class="nav-links">
         <a v-for="l in links" :key="l" :href="`#${l}`" @click="open = false">{{ t.nav[l] }}</a>

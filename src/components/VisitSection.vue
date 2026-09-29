@@ -11,7 +11,6 @@ const dirHref = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`
   <section class="section visit" id="visit">
     <div class="container visit-grid">
       <div class="visit-info" v-reveal>
-        <p class="eyebrow">{{ t.visit.eyebrow }}</p>
         <h2 class="h2">{{ t.visit.title }}</h2>
         <dl class="info-list">
           <div><dt>{{ t.visit.addrL }}</dt><dd>{{ t.visit.addr }}</dd></div>
